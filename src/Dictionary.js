@@ -7,8 +7,6 @@ export default function Dictionary() {
   let [resaults, setResaults] = useState(null);
 
   function handleResponse(response) {
-    console.log(response.data[0]);
-    console.log(response.data[0].meanings[0].definitions[0].definition);
     setResaults(response.data[0]);
   }
 
@@ -17,7 +15,6 @@ export default function Dictionary() {
   }
   function handleSubmit(event) {
     event.preventDefault();
-    alert(`searching for ${keyword}`);
 
     //documentation: https://dictionaryapi.dev/
     let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`;
