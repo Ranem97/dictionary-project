@@ -2,9 +2,7 @@ body {
   background: #282c34;
   font-family: "Joan", serif;
 }
-
-.App-header {
-  max-width: 200px;
-  display: block;
-  margin: 0 20px;
+.App {
+  max-width: 960px;
+  margin: 0 auto;
 }

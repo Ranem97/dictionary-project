@@ -6,6 +6,7 @@ import "./Dictionary.css";
 export default function Dictionary() {
   let [keyword, setKeyword] = useState("");
   let [resaults, setResaults] = useState(null);
+  let [photos, setPhotos] = useState(null);
 
   function handleResponse(response) {
     setResaults(response.data[0]);
@@ -14,12 +15,22 @@ export default function Dictionary() {
   function handleKeywordChange(event) {
     setKeyword(event.target.value);
   }
+
+  function handlePexelsResponse(response) {
+    setPhotos(response.data.photos);
+  }
   function handleSubmit(event) {
     event.preventDefault();
 
     //documentation: https://dictionaryapi.dev/
     let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`;
     axios.get(apiUrl).then(handleResponse);
+
+    const pexelsApiKey =
+      "563492ad6f91700001000001cfc1bc4e6d6246b0849f19554969c554";
+    let pexelsApiUrl = `https://api.pexels.com/v1/search?query=${keyword}&per_page=1`;
+    let headers = { Authorization: `Bearer ${pexelsApiKey}` };
+    axios.get(pexelsApiUrl, { headers: headers }).then(handlePexelsResponse);
   }
 
   return (
