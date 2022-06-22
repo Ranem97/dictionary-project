@@ -1,6 +1,10 @@
 .Dictionary {
   background: #282c34;
 }
+.Dictionary h1 {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
 
 .Dictionary section {
   background: #ececec;

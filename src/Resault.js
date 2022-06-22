@@ -5,6 +5,7 @@ import "./Resault.css";
 //import { Audio } from "react-loader-spinner";
 
 export default function Resault(props) {
+  //console.log(props);
   if (props.resault) {
     return (
       <div className="Resault">
@@ -18,15 +19,14 @@ export default function Resault(props) {
             );
           })}
         </section>
-        <section>
-          {props.resault.meanings.map(function (meaning, index) {
-            return (
-              <div key={index}>
-                <Meaning meaning={meaning} />
-              </div>
-            );
-          })}
-        </section>
+
+        {props.resault.meanings.map(function (meaning, index) {
+          return (
+            <section key={index}>
+              <Meaning meaning={meaning} />
+            </section>
+          );
+        })}
       </div>
     );
   } else {
