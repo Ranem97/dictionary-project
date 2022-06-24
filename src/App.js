@@ -7,6 +7,25 @@ function App() {
     <div className="App">
       <header className="App-header"></header>
       <Dictionary />
+      <footer>
+        This project was coded by{" "}
+        <a
+          href="https://focused-joliot-da009a.netlify.app/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Ranem Al-Haffar
+        </a>{" "}
+        and is{" "}
+        <a
+          href="https://github.com/Ranem97/dictionary-project"
+          target="_blank"
+          rel="noreferrer"
+        >
+          {" "}
+          Open-Source
+        </a>
+      </footer>
     </div>
   );
 }
