@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Resault from "./Resault";
 import axios from "axios";
 import "./Dictionary.css";
+import Photos from "./Photos";
 
 export default function Dictionary() {
   let [keyword, setKeyword] = useState("");
@@ -28,7 +29,7 @@ export default function Dictionary() {
 
     const pexelsApiKey =
       "563492ad6f91700001000001cfc1bc4e6d6246b0849f19554969c554";
-    let pexelsApiUrl = `https://api.pexels.com/v1/search?query=${keyword}&per_page=1`;
+    let pexelsApiUrl = `https://api.pexels.com/v1/search?query=${keyword}&per_page=9`;
     let headers = { Authorization: `Bearer ${pexelsApiKey}` };
     axios.get(pexelsApiUrl, { headers: headers }).then(handlePexelsResponse);
   }
@@ -48,6 +49,7 @@ export default function Dictionary() {
         <div className="hint">Suggested Words: sunset, yoga, plant...</div>
       </section>
       <Resault resault={resaults} />
+      <Photos photos={photos} />
     </div>
   );
 }
